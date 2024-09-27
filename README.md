@@ -8,7 +8,7 @@ A simple plugin & a website to visualise particles in a minecraft.
 ## Building 
 
 ### Plugin
-To build the plugin, run `.\gradlew clean reobfJar` (or `./gradlew clean reobfJar` on linux) in the `plugin` directory. 
+To build the plugin, run `.\gradlew clean reobfJar` (or `./gradlew clean reobfJar` on linux) in the root directory. 
 The jar will be in `/build/libs` directory.
 
 ### Webapp
