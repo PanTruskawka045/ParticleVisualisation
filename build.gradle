@@ -1,0 +1,42 @@
+
+plugins {
+    id 'java'
+    id 'com.github.johnrengelman.shadow' version '7.0.0'
+    id 'io.papermc.paperweight.userdev' version "1.7.1"
+}
+
+group = 'me.pan_truskawka045'
+version = '1.0-SNAPSHOT'
+
+sourceCompatibility = 17
+targetCompatibility = 17
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+    maven {
+        url = uri("https://repo.papermc.io/repository/maven-public/")
+    }
+}
+
+dependencies {
+    paperweight.paperDevBundle("1.18.2-R0.1-SNAPSHOT")
+
+    annotationProcessor group: 'org.projectlombok', name: 'lombok', version: '1.18.20'
+    compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.20'
+
+    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.14.0-rc1'
+    implementation 'com.sparkjava:spark-core:2.9.4'
+
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+tasks.assemble {
+    dependsOn(tasks.reobfJar)
+}
+

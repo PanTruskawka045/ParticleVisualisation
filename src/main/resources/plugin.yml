@@ -1,0 +1,5 @@
+name: ParticleVisualizer
+main: me.pan_truskawka045.particlevisualiser.ParticleVisualiserPlugin
+version: 1.0
+
+api-version: 1.18
