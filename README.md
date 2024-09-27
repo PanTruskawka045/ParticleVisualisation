@@ -14,7 +14,7 @@ The jar will be in `/build/libs` directory.
 ### Webapp
 
 To build the webapp, run `npm run build` in the `webapp` (`cd webapp`) directory. 
-The built files will be in the `/dist` directory.
+The built files will be in the `/webapp/build` directory.
 
 ## Running 
 1. Install the latest paper 1.18.2 
