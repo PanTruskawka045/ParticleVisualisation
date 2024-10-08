@@ -1,6 +1,7 @@
 import './App.css';
 import {useEffect, useState} from "react";
 import {CopyToClipboard} from "react-copy-to-clipboard/src";
+import Select from "react-select/base";
 
 function App() {
 
@@ -19,6 +20,14 @@ function App() {
     useEffect(() => {
         (async () => {
             await fetch("/partices.json").then(res => res.json()).then(data => {
+                data = Object.keys(data).sort().reduce(
+                    (obj, key) => {
+                        obj[key] = data[key];
+                        return obj;
+                    },
+                    {}
+                );
+
                 setAvailableParticles(data);
                 setParticle(Object.keys(data)[0]);
             });
@@ -112,10 +121,14 @@ function App() {
 
             <div className={"flex gap-2 items-center justify-center"}>
                 {/*Looks disgusting but it's better than floating text*/}
-                <button type={"button"} className={"p-1 bg-indigo-500 rounded text-white hover:scale-105 hover:transform duration-300"}
-                        onClick={submit}>Update</button>
+                <button type={"button"}
+                        className={"p-1 bg-indigo-500 rounded text-white hover:scale-105 hover:transform duration-300"}
+                        onClick={submit}>Update
+                </button>
                 <CopyToClipboard text={packetCode}>
-                    <button type={"button"} className={"p-1 bg-indigo-500 rounded text-white hover:scale-105 hover:transform duration-300"} onClick={submit}>Copy to
+                    <button type={"button"}
+                            className={"p-1 bg-indigo-500 rounded text-white hover:scale-105 hover:transform duration-300"}
+                            onClick={submit}>Copy to
                         clipboard
                     </button>
                 </CopyToClipboard>
