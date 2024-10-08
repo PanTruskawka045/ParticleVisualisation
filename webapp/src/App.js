@@ -1,7 +1,6 @@
 import './App.css';
 import {useEffect, useState} from "react";
 import {CopyToClipboard} from "react-copy-to-clipboard/src";
-import Select from "react-select/base";
 
 function App() {
 
